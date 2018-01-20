@@ -25,6 +25,7 @@ type DBConf struct {
 	Env           string
 	Driver        DBDriver
 	PgSchema      string
+	Silent        bool
 }
 
 // extract configuration details from the given file

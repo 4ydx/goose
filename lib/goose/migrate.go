@@ -80,8 +80,9 @@ func RunMigrationsOnDb(conf *DBConf, migrationsDir string, target int64, db *sql
 	direction := current < target
 	ms.Sort(direction)
 
-	//fmt.Printf("goose: migrating db environment '%v', current version: %d, target: %d\n", conf.Env, current, target)
-
+	if !conf.Silent {
+		fmt.Printf("goose: migrating db environment '%v', current version: %d, target: %d\n", conf.Env, current, target)
+	}
 	for _, m := range ms {
 
 		switch filepath.Ext(m.Source) {
@@ -95,7 +96,9 @@ func RunMigrationsOnDb(conf *DBConf, migrationsDir string, target int64, db *sql
 			return errors.New(fmt.Sprintf("FAIL %v, quitting migration", err))
 		}
 
-		//fmt.Println("OK   ", filepath.Base(m.Source))
+		if !conf.Silent {
+			fmt.Println("OK   ", filepath.Base(m.Source))
+		}
 	}
 
 	return nil
