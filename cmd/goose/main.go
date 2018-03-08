@@ -1,9 +1,9 @@
 package main
 
 import (
-	"bitbucket.org/liamstask/goose/lib/goose"
 	"flag"
 	"fmt"
+	"github.com/4ydx/goose/lib/goose"
 	"os"
 	"strings"
 	"text/template"
