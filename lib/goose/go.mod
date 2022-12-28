@@ -1,4 +1,4 @@
-module github.com/4ydx/goose/lib
+module github.com/4ydx/goose/lib/goose
 
 go 1.18
 
